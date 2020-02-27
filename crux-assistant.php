@@ -129,6 +129,9 @@ function crux_assistant_activation_check() {
 			crux_assistant();
 		}
 	} else {
+		if ( ! function_exists( 'deactivate_plugins' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		add_action( 'admin_notices', 'crux_assistant_activation_notice' );
 	}
