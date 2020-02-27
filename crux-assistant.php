@@ -92,7 +92,6 @@ if ( ! class_exists( 'Crux_Assistant' ) ) :
 				require_once CA_PLUGIN_PATH . 'includes/widgets/widget-woo-on-sale-products.php';
 				require_once CA_PLUGIN_PATH . 'includes/widgets/widget-woo-top-rated.php';
 			}
-			require_once CA_PLUGIN_PATH . 'includes/updater/updater.php';
 		}
 	}
 endif;
