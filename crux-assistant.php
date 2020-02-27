@@ -116,13 +116,13 @@ function crux_assistant_activation_notice() {
 }
 
 /**
- *
+ * Assistant activation check.
  *
  * @since 1.0
  */
 function crux_assistant_activation_check() {
-	$theme = wp_get_theme(); // gets the current theme
-	if ( 'Crux' == $theme->name || 'Crux' == $theme->parent_theme ) {
+	$theme = wp_get_theme(); // gets the current theme.
+	if ( 'Crux' === $theme->name || 'Crux' === $theme->parent_theme ) {
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
 			add_action( 'after_setup_theme', 'crux_assistant' );
 		} else {
