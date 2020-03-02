@@ -7,9 +7,9 @@ add_action(
 
 class stag_widget_featured_product extends WP_Widget{
 	function __construct(){
-		$widget_ops  = array( 'classname' => 'widget-featured-product', 'description' => __( 'Display a list of featured products on your site.', 'stag' ) );
+		$widget_ops  = array( 'classname' => 'widget-featured-product', 'description' => __( 'Display a list of featured products on your site.', 'crux-assistant' ) );
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'stag_widget_featured_product' );
-		parent::__construct( 'stag_widget_featured_product', __( 'Section: Custom Featured Products', 'stag' ), $widget_ops, $control_ops );
+		parent::__construct( 'stag_widget_featured_product', __( 'Section: Custom Featured Products', 'crux-assistant' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -153,7 +153,7 @@ class stag_widget_featured_product extends WP_Widget{
 	function form($instance){
 		$defaults = array(
 			/* Deafult options goes here */
-			'title' => __( 'Featured Products', 'stag' ),
+			'title' => __( 'Featured Products', 'crux-assistant' ),
 			'count' => 6
 		);
 
@@ -163,12 +163,12 @@ class stag_widget_featured_product extends WP_Widget{
 	?>
 
 	<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'stag'); ?></label>
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'crux-assistant'); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Count:', 'stag'); ?></label>
+		<label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Count:', 'crux-assistant'); ?></label>
 		<input type="number" class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo $instance['count']; ?>" />
 	</p>
 

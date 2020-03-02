@@ -7,9 +7,9 @@ add_action(
 
 class stag_widget_static_content extends WP_Widget {
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget-static-content', 'description' => __( 'Displays content from a specific page.', 'stag' ) );
+		$widget_ops = array( 'classname' => 'widget-static-content', 'description' => __( 'Displays content from a specific page.', 'crux-assistant' ) );
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'stag_widget_static_content' );
-		parent::__construct( 'stag_widget_static_content', __( 'Section: Static Content', 'stag' ), $widget_ops, $control_ops );
+		parent::__construct( 'stag_widget_static_content', __( 'Section: Static Content', 'crux-assistant' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -41,8 +41,8 @@ class stag_widget_static_content extends WP_Widget {
 					<?php
 						global $more;
 						$more = false;
-						the_content( __( 'Read More&hellip;', 'stag' ) );
-						wp_link_pages( array( 'before' => '<p><strong>' . __( 'Pages:', 'stag' ) . '</strong> ', 'after' => '</p>', 'next_or_number' => 'number' ) );
+						the_content( __( 'Read More&hellip;', 'crux-assistant' ) );
+						wp_link_pages( array( 'before' => '<p><strong>' . __( 'Pages:', 'crux-assistant' ) . '</strong> ', 'after' => '</p>', 'next_or_number' => 'number' ) );
 					?>
 				</div>
 			</article>
@@ -106,12 +106,12 @@ class stag_widget_static_content extends WP_Widget {
 
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'page' ); ?>"><?php _e( 'Select Page:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'page' ); ?>"><?php _e( 'Select Page:', 'crux-assistant' ); ?></label>
 
 		<select id="<?php echo $this->get_field_id( 'page' ); ?>" name="<?php echo $this->get_field_name( 'page' ); ?>" class="widefat">
 		<?php
@@ -132,28 +132,28 @@ class stag_widget_static_content extends WP_Widget {
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'bg_color' ); ?>"><?php _e( 'Background Color:', 'stag' ); ?></label><br>
+		<label for="<?php echo $this->get_field_id( 'bg_color' ); ?>"><?php _e( 'Background Color:', 'crux-assistant' ); ?></label><br>
 		<input type="text" data-default-color="<?php echo $defaults['bg_color'] ?>" class="colorpicker" name="<?php echo $this->get_field_name( 'bg_color' ); ?>" id="<?php echo $this->get_field_id( 'bg_color' ); ?>" value="<?php echo $instance['bg_color']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'bg_image' ); ?>"><?php _e( 'Background Image URL:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'bg_image' ); ?>"><?php _e( 'Background Image URL:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'bg_image' ); ?>" name="<?php echo $this->get_field_name( 'bg_image' ); ?>" value="<?php echo $instance['bg_image']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'bg_opacity' ); ?>"><?php _e( 'Background Opacity:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'bg_opacity' ); ?>"><?php _e( 'Background Opacity:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'bg_opacity' ); ?>" name="<?php echo $this->get_field_name( 'bg_opacity' ); ?>" value="<?php echo $instance['bg_opacity']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'text_color' ); ?>"><?php _e( 'Text Color:', 'stag' ); ?></label><br>
+		<label for="<?php echo $this->get_field_id( 'text_color' ); ?>"><?php _e( 'Text Color:', 'crux-assistant' ); ?></label><br>
 		<input type="text" data-default-color="<?php echo $defaults['text_color'] ?>" class="colorpicker" name="<?php echo $this->get_field_name( 'text_color' ); ?>" id="<?php echo $this->get_field_id( 'text_color' ); ?>" value="<?php echo $instance['text_color']; ?>" />
 
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'link_color' ); ?>"><?php _e( 'Link Color:', 'stag' ); ?></label><br>
+		<label for="<?php echo $this->get_field_id( 'link_color' ); ?>"><?php _e( 'Link Color:', 'crux-assistant' ); ?></label><br>
 		<input type="text" data-default-color="<?php echo stag_theme_mod( 'styling_options', 'style_accent_color' ); ?>" class="colorpicker" name="<?php echo $this->get_field_name( 'link_color' ); ?>" id="<?php echo $this->get_field_id( 'link_color' ); ?>" value="<?php echo $instance['link_color']; ?>" />
 	</p>
 

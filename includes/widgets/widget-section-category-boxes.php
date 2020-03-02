@@ -7,9 +7,9 @@ add_action(
 
 class stag_widget_category_boxes extends WP_Widget{
 	function __construct(){
-		$widget_ops = array('classname' => 'widget-category-boxes', 'description' => __('Displays all contents under &ldquo;Category Boxes Sidebar&rdquo; Area.', 'stag'));
+		$widget_ops = array('classname' => 'widget-category-boxes', 'description' => __('Displays all contents under &ldquo;Category Boxes Sidebar&rdquo; Area.', 'crux-assistant'));
 		$control_ops = array('width' => 300, 'height' => 350, 'id_base' => 'stag_widget_category_boxes');
-		parent::__construct('stag_widget_category_boxes', __('Section: Category Boxes', 'stag'), $widget_ops, $control_ops);
+		parent::__construct('stag_widget_category_boxes', __('Section: Category Boxes', 'crux-assistant'), $widget_ops, $control_ops);
 	}
 
 	function widget($args, $instance){
@@ -68,7 +68,7 @@ class stag_widget_category_boxes extends WP_Widget{
 
 
 	<p>
-		<label for="<?php echo $this->get_field_id('background_color'); ?>"><?php _e('Background Color:', 'stag'); ?></label><br>
+		<label for="<?php echo $this->get_field_id('background_color'); ?>"><?php _e('Background Color:', 'crux-assistant'); ?></label><br>
 		<input type="text" data-default-color="<?php echo $defaults['background_color'] ?>" class="colorpicker" name="<?php echo $this->get_field_name( 'background_color' ); ?>" id="<?php echo $this->get_field_id( 'background_color' ); ?>" value="<?php echo $instance['background_color']; ?>" />
 	</p>
 

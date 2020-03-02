@@ -9,14 +9,14 @@ class stag_widget_category_box extends WP_Widget {
 	function __construct() {
 		$widget_ops  = array(
 			'classname'   => 'widget-category-box',
-			'description' => __( 'Display Category boxes, should be used only in &ldquo;Category Boxes Sidebar&rdquo; Area.', 'stag' ),
+			'description' => __( 'Display Category boxes, should be used only in &ldquo;Category Boxes Sidebar&rdquo; Area.', 'crux-assistant' ),
 		);
 		$control_ops = array(
 			'width'   => 300,
 			'height'  => 350,
 			'id_base' => 'stag_widget_category_box',
 		);
-		parent::__construct( 'stag_widget_category_box', __( 'Category Box', 'stag' ), $widget_ops, $control_ops );
+		parent::__construct( 'stag_widget_category_box', __( 'Category Box', 'crux-assistant' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -64,7 +64,7 @@ class stag_widget_category_box extends WP_Widget {
 			'title'       => '',
 			'bg_image'    => '',
 			'button_link' => '',
-			'button_text' => __( 'Browse', 'stag' ),
+			'button_text' => __( 'Browse', 'crux-assistant' ),
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -73,22 +73,22 @@ class stag_widget_category_box extends WP_Widget {
 	?>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'bg_image' ); ?>"><?php _e( 'Background Image URL:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'bg_image' ); ?>"><?php _e( 'Background Image URL:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'bg_image' ); ?>" name="<?php echo $this->get_field_name( 'bg_image' ); ?>" value="<?php echo $instance['bg_image']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'button_link' ); ?>"><?php _e( 'Button Link:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'button_link' ); ?>"><?php _e( 'Button Link:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'button_link' ); ?>" name="<?php echo $this->get_field_name( 'button_link' ); ?>" value="<?php echo $instance['button_link']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:', 'stag' ); ?></label>
+		<label for="<?php echo $this->get_field_id( 'button_text' ); ?>"><?php _e( 'Button Text:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'button_text' ); ?>" name="<?php echo $this->get_field_name( 'button_text' ); ?>" value="<?php echo $instance['button_text']; ?>" />
 	</p>
 
