@@ -21,39 +21,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Crux_Assistant' ) ) :
 	/**
+	 * Crux Assistant.
 	 *
 	 * @since 1.0
 	 */
 	class Crux_Assistant {
 
 		/**
+		 * Class instance.
 		 *
 		 * @since 1.0
 		 */
 		private static $instance;
 
 		/**
+		 * Register method to create a new instance.
 		 *
 		 * @since 1.0
 		 */
 		public static function register() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Crux_Assistant ) ) {
 				self::$instance = new Crux_Assistant();
-				self::$instance->init();
 				self::$instance->define_constants();
 				self::$instance->includes();
 			}
 		}
 
 		/**
-		 *
-		 * @since 1.0
-		 */
-		public function init() {
-			add_action( 'enqueue_assets', 'plugin_assets' );
-		}
-
-		/**
+		 * Defines plugin constants.
 		 *
 		 * @since 1.0
 		 */
@@ -65,6 +60,7 @@ if ( ! class_exists( 'Crux_Assistant' ) ) :
 		}
 
 		/**
+		 * Method to define a constant.
 		 *
 		 * @param string $name
 		 * @param string $value
@@ -77,6 +73,7 @@ if ( ! class_exists( 'Crux_Assistant' ) ) :
 		}
 
 		/**
+		 * Includes plugin files.
 		 *
 		 * @since 1.0
 		 */
@@ -98,6 +95,7 @@ endif;
 
 
 /**
+ * Invokes Crux_Assistant Class.
  *
  * @since 1.0
  */
@@ -106,6 +104,7 @@ function crux_assistant() {
 }
 
 /**
+ * Activation notice.
  *
  * @since 1.0
  */
