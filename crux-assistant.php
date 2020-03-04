@@ -82,7 +82,7 @@ if ( ! class_exists( 'Crux_Assistant' ) ) :
 			require_once CA_PLUGIN_PATH . 'includes/widgets/widget-section-category-boxes.php';
 			require_once CA_PLUGIN_PATH . 'includes/widgets/widget-static-content.php';
 
-			if ( stag_is_woocommerce_active() ) {
+			if ( function_exists( 'stag_is_woocommerce_active' ) && stag_is_woocommerce_active() ) {
 				require_once CA_PLUGIN_PATH . 'includes/widgets/widget-woo-best-sellers.php';
 				require_once CA_PLUGIN_PATH . 'includes/widgets/widget-woo-featured-products.php';
 				require_once CA_PLUGIN_PATH . 'includes/widgets/widget-woo-latest-products.php';
