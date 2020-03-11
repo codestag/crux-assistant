@@ -1,22 +1,30 @@
 <?php
 add_action(
-	'widgets_init', function() {
+	'widgets_init',
+	function() {
 		return register_widget( 'stag_widget_best_sellers' );
 	}
 );
 
-class stag_widget_best_sellers extends WP_Widget{
-	function __construct(){
-		$widget_ops  = array( 'classname' => 'widget-best-sellers', 'description' => __( 'Display a list of best sellings products on your site.', 'crux-assistant' ) );
-		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'stag_widget_best_sellers' );
+class stag_widget_best_sellers extends WP_Widget {
+	function __construct() {
+		$widget_ops  = array(
+			'classname'   => 'widget-best-sellers',
+			'description' => __( 'Display a list of best sellings products on your site.', 'crux-assistant' ),
+		);
+		$control_ops = array(
+			'width'   => 300,
+			'height'  => 350,
+			'id_base' => 'stag_widget_best_sellers',
+		);
 		parent::__construct( 'stag_widget_best_sellers', __( 'Section: Custom Best Sellers', 'crux-assistant' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
-		extract($args);
+		extract( $args );
 
 		// VARS FROM WIDGET SETTINGS
-		$title = apply_filters('widget_title', $instance['title'] );
+		$title = apply_filters( 'widget_title', $instance['title'] );
 		$count = $instance['count'];
 
 		echo $before_widget;
@@ -26,12 +34,12 @@ class stag_widget_best_sellers extends WP_Widget{
 		<div class="inside">
 
 			<?php
-				if ( $title ) {
-					echo $before_title . $title . $after_title;
-				}
+			if ( $title ) {
+				echo $before_title . $title . $after_title;
+			}
 			?>
 
-			<div class="grids products">
+			<ul class="grids products">
 			<?php
 
 				$args = array(
@@ -45,22 +53,26 @@ class stag_widget_best_sellers extends WP_Widget{
 
 				$products = new WP_Query( $args );
 
-				if ( $products->have_posts() ) : ?>
+				if ( $products->have_posts() ) :
+					?>
 
-				    <?php while ( $products->have_posts() ) : $products->the_post(); ?>
+					<?php
+					while ( $products->have_posts() ) :
+						$products->the_post();
+						?>
 
-				        <?php wc_get_template_part( 'content', 'product' ); ?>
+						<?php wc_get_template_part( 'content', 'product' ); ?>
 
-				    <?php endwhile; // end of the loop. ?>
+					<?php endwhile; // end of the loop. ?>
 
-				<?php
+					<?php
 
 				endif;
 
 				wp_reset_query();
 
-			?>
-			</div>
+				?>
+			</ul>
 		</div>
 
 		<?php
@@ -69,38 +81,38 @@ class stag_widget_best_sellers extends WP_Widget{
 
 	}
 
-	function update($new_instance, $old_instance){
+	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
 		// STRIP TAGS TO REMOVE HTML
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['count'] = strip_tags(absint($new_instance['count']));
+		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['count'] = strip_tags( absint( $new_instance['count'] ) );
 
 		return $instance;
 	}
 
-	function form($instance){
+	function form( $instance ) {
 		$defaults = array(
 			/* Deafult options goes here */
 			'title' => __( 'Best Sellers', 'crux-assistant' ),
-			'count' => 4
+			'count' => 4,
 		);
 
-		$instance = wp_parse_args((array) $instance, $defaults);
+		$instance = wp_parse_args( (array) $instance, $defaults );
 
-	/* HERE GOES THE FORM */
-	?>
+		/* HERE GOES THE FORM */
+		?>
 
 	<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'crux-assistant'); ?></label>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'crux-assistant' ); ?></label>
 		<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" />
 	</p>
 
 	<p>
-		<label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Count:', 'crux-assistant'); ?></label>
+		<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Count:', 'crux-assistant' ); ?></label>
 		<input type="number" class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" value="<?php echo $instance['count']; ?>" />
 	</p>
 
-	<?php
-  }
+		<?php
+	}
 }
