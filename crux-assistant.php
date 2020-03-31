@@ -78,6 +78,13 @@ if ( ! class_exists( 'Crux_Assistant' ) ) :
 		 * @since 1.0
 		 */
 		public function includes() {
+			if ( is_admin() ) {
+				require_once CA_PLUGIN_PATH . 'includes/meta/stag-admin-metabox.php';
+			}
+
+			require_once CA_PLUGIN_PATH . 'includes/meta/layout-meta.php';
+			require_once CA_PLUGIN_PATH . 'includes/meta/page-meta.php';
+			require_once CA_PLUGIN_PATH . 'includes/meta/slider-meta.php';
 			require_once CA_PLUGIN_PATH . 'includes/widgets/widget-category-box.php';
 			require_once CA_PLUGIN_PATH . 'includes/widgets/widget-section-category-boxes.php';
 			require_once CA_PLUGIN_PATH . 'includes/widgets/widget-static-content.php';
