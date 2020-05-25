@@ -129,11 +129,7 @@ function crux_assistant_activation_notice() {
 function crux_assistant_activation_check() {
 	$theme = wp_get_theme(); // gets the current theme.
 	if ( 'Crux' === $theme->name || 'Crux' === $theme->parent_theme ) {
-		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-			add_action( 'after_setup_theme', 'crux_assistant' );
-		} else {
-			crux_assistant();
-		}
+		add_action( 'after_setup_theme', 'crux_assistant' );
 	} else {
 		if ( ! function_exists( 'deactivate_plugins' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
