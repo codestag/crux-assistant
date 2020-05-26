@@ -27,6 +27,12 @@ class stag_widget_top_rated_products extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$count = $instance['count'];
 
+		$columns = crux_loop_columns();
+		$grid_class = 'columns-4';
+		if ( ! empty( $columns ) ) {
+			$grid_class = 'columns-' . $columns;
+		}
+
 		echo $before_widget;
 
 		?>
@@ -39,7 +45,7 @@ class stag_widget_top_rated_products extends WP_Widget {
 			}
 			?>
 
-			<ul class="grids products">
+			<ul class="grids products <?php echo esc_attr( $grid_class ); ?>">
 			<?php
 				global $woocommerce;
 
