@@ -1,6 +1,7 @@
 ### Crux Assistant Changelog
 
 = 1.0.1 - May 25, 2020 =
+* Improve widgets column control.
 * Fix woocommerce based widgets activation.
 * Fix plugin activation hook for non-multisite installs.
 
