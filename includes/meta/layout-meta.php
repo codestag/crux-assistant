@@ -1,7 +1,16 @@
 <?php
+/**
+ * Layout metaboxes
+ *
+ * @package Crux Assistant
+ * @subpackage Crux
+ */
 
-add_action( 'add_meta_boxes', 'stag_metabox_layout' );
-
+/**
+ * Register layout meta.
+ *
+ * @return void
+ */
 function stag_metabox_layout() {
 	$meta_box = array(
 		'id'          => 'stag-metabox-layout',
@@ -40,3 +49,4 @@ function stag_metabox_layout() {
 	$meta_box['page'] = 'post';
 	stag_add_meta_box( $meta_box );
 }
+add_action( 'add_meta_boxes', 'stag_metabox_layout' );

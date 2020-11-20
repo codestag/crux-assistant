@@ -1,7 +1,16 @@
 <?php
+/**
+ * Page metaboxes
+ *
+ * @package Crux Assistant
+ * @subpackage Crux
+ */
 
-add_action( 'add_meta_boxes', 'stag_metabox_page_background' );
-
+/**
+ * Register page meta.
+ *
+ * @return void
+ */
 function stag_metabox_page_background() {
 	$meta_box = array(
 		'id'          => 'stag-metabox-page-background',
@@ -23,3 +32,4 @@ function stag_metabox_page_background() {
 
 	stag_add_meta_box( $meta_box );
 }
+add_action( 'add_meta_boxes', 'stag_metabox_page_background' );

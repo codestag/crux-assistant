@@ -1,7 +1,16 @@
 <?php
+/**
+ * Slider metaboxes
+ *
+ * @package Crux Assistant
+ * @subpackage Crux
+ */
 
-add_action( 'add_meta_boxes', 'stag_metabox_slider' );
-
+/**
+ * Register Slider meta.
+ *
+ * @return void
+ */
 function stag_metabox_slider() {
 	$meta_box = array(
 		'id'          => 'stag-metabox-slider',
@@ -51,3 +60,4 @@ function stag_metabox_slider() {
 
 	stag_add_meta_box( $meta_box );
 }
+add_action( 'add_meta_boxes', 'stag_metabox_slider' );

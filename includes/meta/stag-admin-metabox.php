@@ -1,4 +1,10 @@
 <?php
+/**
+ * Metabox helper functions
+ *
+ * @package Crux Assistant
+ * @subpackage Crux
+ */
 
 /**
  * Add a custom meta box

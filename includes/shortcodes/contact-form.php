@@ -7,6 +7,7 @@
  * @package Crux Assistant
  * @subpackage Crux
  */
+
 function crux_contact_form_sc() {
 	$nameError         = __( 'Please enter your name.', 'crux-assistant' );
 	$emailError        = __( 'Please enter your email address.', 'crux-assistant' );
@@ -16,14 +17,14 @@ function crux_contact_form_sc() {
 	$errorMessages = array();
 
 	if ( isset( $_POST['submitted'] ) ) {
-		if ( trim( $_POST['contactName'] ) === '' ) {
+		if ( '' === trim( $_POST['contactName'] ) ) {
 			$errorMessages['nameError'] = $nameError;
 			$hasError                   = true;
 		} else {
 			$name = trim( $_POST['contactName'] );
 		}
 
-		if ( trim( $_POST['email'] ) === '' ) {
+		if ( '' === trim( $_POST['email'] ) ) {
 			$errorMessages['emailError'] = $emailError;
 			$hasError                    = true;
 		} elseif ( ! is_email( trim( $_POST['email'] ) ) ) {
@@ -33,7 +34,7 @@ function crux_contact_form_sc() {
 			$email = trim( $_POST['email'] );
 		}
 
-		if ( trim( $_POST['comments'] ) === '' ) {
+		if ( '' === trim( $_POST['comments'] ) ) {
 			$errorMessages['commentError'] = $commentError;
 			$hasError                      = true;
 		} else {
@@ -49,14 +50,14 @@ function crux_contact_form_sc() {
 			if ( ! isset( $emailTo ) || ( $emailTo == '' ) ) {
 				$emailTo = get_option( 'admin_email' );
 			}
-			$subject = '[Contact Form] From ' . $name;
+			$subject = __( '[Contact Form] From ', 'crux-assistant' ) . $name;
 
 			$body  = "Name: $name \n\nEmail: $email \n\nMessage: $comments \n\n";
 			$body .= "--\n";
-			$body .= 'This mail is sent via contact form on ' . get_bloginfo( 'name' ) . "\n";
+			$body .= __( 'This mail is sent via contact form on ', 'crux-assistant' ) . get_bloginfo( 'name' ) . "\n";
 			$body .= home_url();
 
-			$headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n" . 'Reply-To: ' . $email;
+			$headers = __( 'From: ', 'crux-assistant' ) . $name . ' <' . $email . '>' . "\r\n" . __( 'Reply-To: ', 'crux-assistant' ) . $email;
 
 			wp_mail( $emailTo, $subject, $body, $headers );
 			$emailSent = true;
@@ -67,17 +68,17 @@ function crux_contact_form_sc() {
 		<?php if ( isset( $emailSent ) && $emailSent == true ) : ?>
 
 			<div class="stag-alert stag-alert--green">
-				<p><?php _e( 'Thanks, your email was sent successfully.', 'crux-assistant' ); ?></p>
+				<p><?php esc_html_e( 'Thanks, your email was sent successfully.', 'crux-assistant' ); ?></p>
 			</div>
 
 		<?php else : ?>
 
 			<form action="<?php the_permalink(); ?>" id="contactForm" class="contact-form" method="post">
-				<h2><?php _e( 'Send a Direct Message', 'crux-assistant' ); ?></h2>
+				<h2><?php esc_html_e( 'Send a Direct Message', 'crux-assistant' ); ?></h2>
 
 				<div class="grids">
 					<p class="grid-6">
-						<label for="contactName"><?php _e( 'Name', 'crux-assistant' ); ?></label>
+						<label for="contactName"><?php esc_html_e( 'Name', 'crux-assistant' ); ?></label>
 						<input type="text" name="contactName" id="contactName" value="
 						<?php
 						if ( isset( $_POST['contactName'] ) ) {
@@ -90,7 +91,7 @@ function crux_contact_form_sc() {
 					</p>
 
 					<p class="grid-6">
-						<label for="email"><?php _e( 'Email', 'crux-assistant' ); ?></label>
+						<label for="email"><?php esc_html_e( 'Email', 'crux-assistant' ); ?></label>
 						<input type="email" name="email" id="email" value="
 						<?php
 						if ( isset( $_POST['email'] ) ) {
@@ -107,7 +108,7 @@ function crux_contact_form_sc() {
 				</div>
 
 				<p class="commentsText">
-					<label for="commentsText"><?php _e( 'Comment', 'crux-assistant' ); ?></label>
+					<label for="commentsText"><?php esc_html_e( 'Comment', 'crux-assistant' ); ?></label>
 					<textarea rows="8" name="comments" id="commentsText" >
 					<?php
 					if ( isset( $_POST['comments'] ) ) {
@@ -124,7 +125,7 @@ function crux_contact_form_sc() {
 				</p>
 
 				<p class="buttons">
-					<input type="submit" id="submitted" class="contact-form-button" name="submitted" value="<?php _e( 'Send Message', 'crux-assistant' ); ?>">
+					<input type="submit" id="submitted" class="contact-form-button" name="submitted" value="<?php esc_html_e( 'Send Message', 'crux-assistant' ); ?>">
 				</p>
 			</form>
 
